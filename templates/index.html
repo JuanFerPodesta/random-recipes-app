@@ -1,0 +1,64 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipes</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+    <script src="{% static 'js/main.js' %}" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Que vas a cocinar esta semana?</h1>
+    </header>
+    <div class="separador"></div>
+    <div class='bgcolor'>
+    <section class="forms">
+      <form method="POST">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit" id="my-button">Otras ideas?</button>
+      </form>
+      <form method="POST" action="{% url 'search_ingredients'%}">
+        {% csrf_token %}
+        <div class="flex">
+          <input
+            type="search"
+            placeholder="Ingredientes..."
+            aria-label="Search"
+            name="searched"
+          />
+          <button type="submit" id="my-button">Buscar</button>
+        </div>
+      </form>
+    </section>
+    <h3>Algunas ideas par los próximos días pueden ser...</h3>
+    <div>
+    <section id="recipes">
+      <div class="separador"></div>
+      {% for day, recipe in days_recipes %}
+      <h2>{{ day }}</h2>
+      <ul>
+        <li><u>Plato:</u> {{recipe.name}}</li>
+        <ul>
+          <u>Ingredientes:</u>
+          {% for ingredient in recipe.ingredients %} {{ingredient}}.- {%endfor%}
+        </ul>
+        <li>
+          <u>Link</u>:
+          <a href="{{ recipe.details_link }}" target="_blank">
+            {{recipe.details_link}}</a
+          >
+        </li>
+        <li><u>Créditos</u>: @{{recipe.credits}}</li>
+      </ul>
+      <div class="separador"></div>
+      {% endfor %}
+    </section>
+  </body>
+</html>

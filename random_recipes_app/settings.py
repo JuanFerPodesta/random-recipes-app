@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-tbt!ay-_28x_w=d*u9cn2uy3k_)(a7e-vof07lgx=y71y&l#kn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['random-recipes-app-production.up.railway.app/']
+ALLOWED_HOSTS = ['random-recipes-app-production.up.railway.app']
 
 
 # Application definition

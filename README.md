@@ -22,4 +22,4 @@ Welcome to the random-recipes-app, a web app that helps you find delicious and h
 
 Without the content created by the different influencers this page wouldn't be possible.
 
-If you have any questions or feedback, please feel free to contact me at ***[juan.fernando.podesta@gmail.com]***.
+If you have any questions or feedback, please feel free to contact me at ***juan.fernando.podesta@gmail.com***.
